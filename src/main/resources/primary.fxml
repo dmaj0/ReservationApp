@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Button?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.TOiK.Project.UIController">
+    <children>
+        <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Basic">
+                    <content>
+                        <AnchorPane prefHeight="334.0" prefWidth="600.0">
+                            <children>
+                                <Label layoutX="25.0" layoutY="26.0" text="Firstname:" />
+                                <TextField fx:id="textFirstname" layoutX="92.0" layoutY="21.0" prefHeight="26.0" prefWidth="478.0" />
+                                <Label layoutX="25.0" layoutY="77.0" text="Lastname:" />
+                                <TextField fx:id="textLastname" layoutX="92.0" layoutY="72.0" prefHeight="26.0" prefWidth="478.0" />
+                                <Label layoutX="41.0" layoutY="129.0" text="Email:" />
+                                <TextField fx:id="textEmail" layoutX="95.0" layoutY="129.0" prefHeight="26.0" prefWidth="478.0" />
+                                <Label layoutX="41.0" layoutY="179.0" text="Stol:" />
+                                <ChoiceBox fx:id="stolPicker" layoutX="92.0" layoutY="179.0" prefWidth="150.0">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Stol 1" />
+                                            <String fx:value="Stol 2" />
+                                            <String fx:value="Stol 3" />
+                                            <String fx:value="Stol 4" />
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
+
+                                <Label layoutX="41.0" layoutY="230.0" text="Data:" />
+                                <DatePicker fx:id="datePickerID" layoutX="92.0" layoutY="230.0">
+
+                                </DatePicker>
+                                <Label layoutX="41.0" layoutY="281.0" text="Godzina:" />
+                                <ChoiceBox fx:id="timePicker" layoutX="92.0" layoutY="281.0" prefWidth="150.0" value="15">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="15" />
+                                            <String fx:value="16" />
+                                            <String fx:value="17" />
+                                            <String fx:value="18" />
+                                            <String fx:value="19" />
+                                            <String fx:value="20" />
+                                            <String fx:value="21" />
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
+
+
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Pane nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="600.0">
+            <children>
+                <Button fx:id="cancelButton" layoutX="133.0" layoutY="15.0" mnemonicParsing="false" prefWidth="80.0" text="Cancel" />
+                <Button fx:id="acceptButton" layoutX="36.0" layoutY="15.0" mnemonicParsing="false" prefWidth="80.0" text="Accept" onAction="#Accept"/>
+            </children>
+        </Pane>
+    </children>
+</VBox>
