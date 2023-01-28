@@ -39,7 +39,7 @@ public class StageListener implements ApplicationListener<JavaFxApplication.Stag
             FXMLLoader fxmlLoader = new FXMLLoader( url);
             fxmlLoader.setControllerFactory(applicationContext::getBean);
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 600, 600);
+            Scene scene = new Scene(root, 800, 600);
             stage.setScene( scene);
             stage.setTitle(this.applicationTitle);
             stage.show();

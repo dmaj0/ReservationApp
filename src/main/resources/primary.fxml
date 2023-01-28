@@ -1,24 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Button?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.TOiK.Project.UIController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.TOiK.Project.UIController">
     <children>
-        <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane fx:id="tabPane" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Basic">
                     <content>
-                        <AnchorPane prefHeight="334.0" prefWidth="600.0">
+                        <AnchorPane prefHeight="534.0" prefWidth="800.0">
+                            <children>
+                                <VBox alignment="TOP_CENTER" prefHeight="572.0" prefWidth="800.0">
+                                    <Label fx:id="displayLabel" alignment="CENTER" text="datavalue" textAlignment="CENTER">
+                              <font>
+                                 <Font name="Calibri Bold" size="24.0" />
+                              </font></Label>
+
+                                    <HBox alignment="CENTER" spacing="10">
+                                        <Button fx:id="displayPrevious" onAction="#selectPreviousDay" prefWidth="120" text="poprzedni dzien">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="50.0" top="10.0" />
+                                 </HBox.margin></Button>
+                                        <ChoiceBox fx:id="displayDayPicker" prefWidth="50.0">
+                                            <items>
+                                                <FXCollections fx:factory="observableArrayList">
+                                                    <String fx:value="1" />
+                                                    <String fx:value="2" />
+                                                    <String fx:value="3" />
+                                                    <String fx:value="4" />
+                                                    <String fx:value="5" />
+                                                    <String fx:value="6" />
+                                                    <String fx:value="7" />
+                                                    <String fx:value="8" />
+                                                    <String fx:value="9" />
+                                                    <String fx:value="10" />
+                                                    <String fx:value="11" />
+                                                    <String fx:value="12" />
+                                                    <String fx:value="13" />
+                                                    <String fx:value="14" />
+                                                    <String fx:value="15" />
+                                                    <String fx:value="16" />
+                                                    <String fx:value="17" />
+                                                    <String fx:value="18" />
+                                                    <String fx:value="19" />
+                                                    <String fx:value="20" />
+                                                    <String fx:value="21" />
+                                                    <String fx:value="22" />
+                                                    <String fx:value="23" />
+                                                    <String fx:value="24" />
+                                                    <String fx:value="25" />
+                                                    <String fx:value="26" />
+                                                    <String fx:value="27" />
+                                                    <String fx:value="28" />
+                                                    <String fx:value="29" />
+                                                    <String fx:value="30" />
+                                                    <String fx:value="31" />
+                                                </FXCollections>
+                                            </items>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                                 </HBox.margin></ChoiceBox>
+                                        <Button fx:id="displaySelected" onAction="#selectPickedDay" prefWidth="120" text="wybrany dzien">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" right="50.0" top="10.0" />
+                                 </HBox.margin></Button>
+                                        <Button fx:id="displayForward" onAction="#selectNextDay" prefWidth="120" text="nastepny dzien">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin></Button>
+                              <VBox.margin>
+                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              </VBox.margin>
+                                    </HBox>
+                           <HBox alignment="CENTER" layoutX="20.0" layoutY="48.0" spacing="10">
+                              <children>
+                                 <Button fx:id="displayPreviousMonth" onAction="#selectPreviousMonth" prefWidth="120" text="poprzedni miesiac">
+                                    <HBox.margin>
+                                       <Insets bottom="10.0" left="10.0" right="50.0" top="10.0" />
+                                    </HBox.margin>
+                                 </Button>
+                                 <Button fx:id="displayForwardMonth" onAction="#selectNextMonth" prefWidth="120" text="nastepny miesiac">
+                                    <HBox.margin>
+                                       <Insets bottom="10.0" left="260.0" right="10.0" top="10.0" />
+                                    </HBox.margin>
+                                 </Button>
+                              </children>
+                           </HBox>
+                                        <TableView fx:id="tableView" prefHeight="580.0" prefWidth="759.0">
+                                            <columns>
+                                                <TableColumn fx:id="imieColumn" prefWidth="75.0" text="Imie" />
+                                                <TableColumn fx:id="nazwiskoColumn" prefWidth="100.0" text="Nazwisko" />
+                                                <TableColumn fx:id="emailColumn" prefWidth="150.0" text="Email" />
+                                                <TableColumn fx:id="stolColumn" prefWidth="75.0" text="Stol" />
+                                                <TableColumn fx:id="timepickerColumn" prefWidth="100.0" text="Godzina" />
+                                                <TableColumn fx:id="daypickerColumn" prefWidth="75.0" text="Day" />
+                                                <TableColumn fx:id="monthpickerColumn" prefWidth="125.0" text="Month" />
+                                                <TableColumn fx:id="yearpickerColumn" prefWidth="100.0" text="Year" />
+                                            </columns>
+                                        </TableView>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Dodaj Rezerwacje">
+                    <content>
+                        <AnchorPane prefHeight="534.0" prefWidth="800.0">
                             <children>
                                 <Label layoutX="25.0" layoutY="26.0" text="Firstname:" />
                                 <TextField fx:id="textFirstname" layoutX="92.0" layoutY="21.0" prefHeight="26.0" prefWidth="478.0" />
@@ -39,9 +131,70 @@
                                 </ChoiceBox>
 
                                 <Label layoutX="41.0" layoutY="230.0" text="Data:" />
-                                <DatePicker fx:id="datePickerID" layoutX="92.0" layoutY="230.0">
-
-                                </DatePicker>
+                                <ChoiceBox fx:id="dayPicker" layoutX="92.0" layoutY="230.0" prefWidth="150.0">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="1" />
+                                            <String fx:value="2" />
+                                            <String fx:value="3" />
+                                            <String fx:value="4" />
+                                            <String fx:value="5" />
+                                            <String fx:value="6" />
+                                            <String fx:value="7" />
+                                            <String fx:value="8" />
+                                            <String fx:value="9" />
+                                            <String fx:value="10" />
+                                            <String fx:value="11" />
+                                            <String fx:value="12" />
+                                            <String fx:value="13" />
+                                            <String fx:value="14" />
+                                            <String fx:value="15" />
+                                            <String fx:value="16" />
+                                            <String fx:value="17" />
+                                            <String fx:value="18" />
+                                            <String fx:value="19" />
+                                            <String fx:value="20" />
+                                            <String fx:value="21" />
+                                            <String fx:value="22" />
+                                            <String fx:value="23" />
+                                            <String fx:value="24" />
+                                            <String fx:value="25" />
+                                            <String fx:value="26" />
+                                            <String fx:value="27" />
+                                            <String fx:value="28" />
+                                            <String fx:value="29" />
+                                            <String fx:value="30" />
+                                            <String fx:value="31" />
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
+                                <ChoiceBox fx:id="monthPicker" layoutX="250.0" layoutY="230.0" prefWidth="150.0">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="styczen" />
+                                            <String fx:value="luty" />
+                                            <String fx:value="marzec" />
+                                            <String fx:value="kwiecien" />
+                                            <String fx:value="maj" />
+                                            <String fx:value="czerwiec" />
+                                            <String fx:value="lipiec" />
+                                            <String fx:value="sierpien" />
+                                            <String fx:value="wrzesien" />
+                                            <String fx:value="pazdziernik" />
+                                            <String fx:value="listopad" />
+                                            <String fx:value="grudzien" />
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
+                                <ChoiceBox fx:id="yearPicker" layoutX="407.0" layoutY="230.0" prefWidth="150.0">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="2022" />
+                                            <String fx:value="2023" />
+                                            <String fx:value="2024" />
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
                                 <Label layoutX="41.0" layoutY="281.0" text="Godzina:" />
                                 <ChoiceBox fx:id="timePicker" layoutX="92.0" layoutY="281.0" prefWidth="150.0" value="15">
                                     <items>
@@ -56,6 +209,11 @@
                                         </FXCollections>
                                     </items>
                                 </ChoiceBox>
+                                <Button fx:id="acceptButton" layoutX="272.6" layoutY="330.0" mnemonicParsing="false" onAction="#Accept" prefWidth="120.0" text="Accept" />
+                                <Label fx:id="addingLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="230.0" layoutY="381" text="Pomyślnie dodano rezerwacje" textAlignment="CENTER" textFill="#10a300" visible="false">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Label>
 
 
                             </children>
@@ -64,11 +222,6 @@
                 </Tab>
             </tabs>
         </TabPane>
-        <Pane nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="600.0">
-            <children>
-                <Button fx:id="cancelButton" layoutX="133.0" layoutY="15.0" mnemonicParsing="false" prefWidth="80.0" text="Cancel" />
-                <Button fx:id="acceptButton" layoutX="36.0" layoutY="15.0" mnemonicParsing="false" prefWidth="80.0" text="Accept" onAction="#Accept"/>
-            </children>
-        </Pane>
+
     </children>
 </VBox>
